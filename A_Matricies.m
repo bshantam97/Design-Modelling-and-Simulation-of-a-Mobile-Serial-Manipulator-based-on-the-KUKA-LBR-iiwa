@@ -1,5 +1,5 @@
-%% Brian Bock
-% ENPM662 - Modeling 
+%% Brian Bock and Shantam Bajpai
+% ENPM662 - Robot Modeling 
 % Term Project
 % Fall 2019
 
@@ -200,7 +200,7 @@ z7=A1A2A3A4A5A6A7(1:3,3)
 
 %cross(z1,(o7-o0))
 
-J=[cross(z0,(o7-o0)) cross(z1,(o7-o1)) cross(z2,(o7-o2)) cross(z3,(o7-o3)) cross(z4,(o7-o4)) cross(z5,(o7-o5)) cross(z6,(o7-o6));
+Jacobian = [cross(z0,(o7-o0)) cross(z1,(o7-o1)) cross(z2,(o7-o2)) cross(z3,(o7-o3)) cross(z4,(o7-o4)) cross(z5,(o7-o5)) cross(z6,(o7-o6));
    z0.*z0 z1.*z0 z2.*z0 z3.*z0 z4.*z0 z5.*z0 z6.*z0]
 
 
