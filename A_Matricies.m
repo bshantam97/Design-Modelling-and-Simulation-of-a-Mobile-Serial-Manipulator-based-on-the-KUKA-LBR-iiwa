@@ -1,4 +1,4 @@
-%% Brian Bock and Shantam Bajpai
+%% Brian Bock
 % ENPM662 - Modeling 
 % Term Project
 % Fall 2019
@@ -167,6 +167,9 @@ T=A1*A2*A3*A4*A5*A6*A7
 
 %% Jacobian 
 
+o0=[0;0;0]
+z0=[0;0;1]
+
 o1=A1(1:3,4)
 z1=A1(1:3,3)
 
@@ -194,3 +197,10 @@ z6=A1A2A3A4A5A6(1:3,3)
 A1A2A3A4A5A6A7=A1*A2*A3*A4*A5*A6*A7;
 o7=A1A2A3A4A5A6A7(1:3,4)
 z7=A1A2A3A4A5A6A7(1:3,3)
+
+%cross(z1,(o7-o0))
+
+J=[cross(z0,(o7-o0)) cross(z1,(o7-o1)) cross(z2,(o7-o2)) cross(z3,(o7-o3)) cross(z4,(o7-o4)) cross(z5,(o7-o5)) cross(z6,(o7-o6));
+   z0.*z0 z1.*z0 z2.*z0 z3.*z0 z4.*z0 z5.*z0 z6.*z0]
+
+
