@@ -1,4 +1,4 @@
-%% Brian Bock
+%% Brian Bock and Shantam Bajpai
 % ENPM662 - Modeling 
 % Term Project
 % Fall 2019
