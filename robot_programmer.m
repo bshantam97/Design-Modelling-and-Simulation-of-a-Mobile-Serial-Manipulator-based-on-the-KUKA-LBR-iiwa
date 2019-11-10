@@ -63,7 +63,7 @@ disp('Connected to vrep. Ready to go!');
 
 %% Drive the Cart
 %pause(15);
-drive(1,-5);
+drive(1,5);
 pause(.5);
 %rotate(pi/2)
 
@@ -160,8 +160,8 @@ if(speed>0)
 elseif(speed<0)
     disp("Beep beep beep - driving backwards!");
 end
-        wheel_velocity=speed
-        duration=abs(distance/(.6*speed))
+        wheel_velocity=speed;
+        duration=abs(distance/(.3*speed));
         %spin wheels
         [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Front_Left_Wheel,wheel_velocity,vrep.simx_opmode_blocking);
         [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Front_Right_Wheel,-wheel_velocity,vrep.simx_opmode_blocking);
@@ -176,7 +176,9 @@ end
 end
 
 
-% function driver=drive(wheel_velocity,duration,direction)% Drive Forward (direction =1), Reverse (direction=-1)
+% function driver=drive(wheel_velocity,duration,direction)% Drive
+% Forward (direction =1), Reverse (direction=-1)
+%Original drive function, uses wheel_speed and time
 % global clientID;
 % global vrep;
 % global KMR_Front_Right_Wheel;
