@@ -62,10 +62,12 @@ disp('Connected to vrep. Ready to go!');
 
 
 %% Drive the Cart
-%pause(15);
-drive(1,5);
-pause(.5);
-%rotate(pi/2)
+%pause(10);
+drive(5,5);
+rotate(90);
+drive(3,5);
+rotate(90);
+drive(7,5);
 
 %% Object Retrieval Pose
 
@@ -76,7 +78,7 @@ pause(.5);
 
 theta_obj=deg2rad(30);
 h_obj=-4;
-l_obj=-2;
+l_obj=3;
 alpha_obj=deg2rad(45);
 
 
@@ -101,7 +103,7 @@ Rotx_obj=[1 0 0 0;
 A_obj=Rotz_obj*Transz_obj*Transx_obj*Rotx_obj;
 
 
-%movearm(A_obj)
+movearm(A_obj)
 
 
 %% Object Removal
@@ -123,7 +125,7 @@ A_remove=Rotz_remove*Transz_remove*Transx_remove*Rotx_remove;
 
 A_0_remove=A_obj*A_remove;
 
-%movearm(A_0_remove)
+movearm(A_0_remove)
 
 
 
@@ -173,6 +175,7 @@ end
         [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Front_Right_Wheel,0,vrep.simx_opmode_blocking);
         [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Rear_Left_Wheel,0,vrep.simx_opmode_blocking);
         [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Rear_Right_Wheel,0,vrep.simx_opmode_blocking);
+        pause(.5);
 end
 
 
@@ -216,7 +219,7 @@ function pivot=rotate(angle) % Rotate about central axis (deg)
     global wheel_radius;
     global wheel_separation_width
     global wheel_separatation_length
-    angle=rad2deg(angle);
+    angle=deg2rad(angle);
     
     disp("Turning!");
     % https://robohub.org/drive-kinematics-skid-steer-and-mecanum-ros-twist-included/
@@ -236,6 +239,7 @@ function pivot=rotate(angle) % Rotate about central axis (deg)
     [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Front_Right_Wheel,0,vrep.simx_opmode_blocking);
     [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Rear_Left_Wheel,0,vrep.simx_opmode_blocking);
     [~]=vrep.simxSetJointTargetVelocity(clientID,KMR_Rear_Right_Wheel,0,vrep.simx_opmode_blocking);
+    pause(.5);
 end
 
 
